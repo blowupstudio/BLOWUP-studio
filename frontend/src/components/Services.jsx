@@ -18,7 +18,7 @@ export default function Services() {
               data-testid={`service-${s.no}`}
             >
               <div className="flex items-start justify-between">
-                <span className="font-display font-bold text-5xl text-brand group-hover:text-ink transition-colors">
+                <span className="font-display font-black text-5xl text-brand group-hover:text-ink transition-colors">
                   {s.no}
                 </span>
                 <ArrowUpRight

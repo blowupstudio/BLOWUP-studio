@@ -91,7 +91,7 @@ export default function Header() {
           data-testid="brand-link"
         >
           <img src={asset("blowup-icon.svg")} alt="BLOWUP" className="h-7 w-7" />
-          <span className="font-display font-bold uppercase text-xl tracking-wide">
+          <span className="font-display font-black uppercase text-xl tracking-wide">
             BLOW<span className="text-brand">UP</span>
           </span>
         </a>

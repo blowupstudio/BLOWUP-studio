@@ -41,7 +41,7 @@ export default function Footer() {
           <div>
             <div className="flex items-center gap-2.5 mb-3">
               <img src={asset("blowup-icon.svg")} alt="BLOWUP" className="h-8 w-8" />
-              <span className="font-display font-bold uppercase text-xl tracking-wide">
+              <span className="font-display font-black uppercase text-xl tracking-wide">
                 BLOW<span className="text-brand">UP</span> studio
               </span>
             </div>
@@ -54,7 +54,7 @@ export default function Footer() {
       </div>
 
       <div className="leading-[0.8] text-center select-none px-2">
-        <span className="font-display font-bold uppercase text-[22vw] text-stroke">BLOWUP</span>
+        <span className="font-display font-black uppercase text-[22vw] text-stroke">BLOWUP</span>
       </div>
 
       <div className="border-t border-line">

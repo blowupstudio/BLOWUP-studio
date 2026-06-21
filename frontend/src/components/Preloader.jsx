@@ -132,7 +132,7 @@ export default function Preloader() {
                     y={wpos.y}
                     textAnchor="middle"
                     dominantBaseline="central"
-                    fontFamily="'Barlow Condensed', sans-serif"
+                    fontFamily="'Barlow', sans-serif"
                     fontWeight="700"
                     fontSize={fs * 0.96}
                     fill="black"
@@ -151,7 +151,7 @@ export default function Preloader() {
               y={cy}
               textAnchor="middle"
               dominantBaseline="central"
-              fontFamily="'Barlow Condensed', sans-serif"
+              fontFamily="'Barlow', sans-serif"
               fontWeight="700"
               fontSize={fs}
               initial={{ opacity: 1 }}

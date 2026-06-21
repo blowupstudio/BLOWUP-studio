@@ -79,7 +79,7 @@ export default function Hero() {
           Musikstudie · Hedehusene
         </motion.div>
 
-        <h1 className="font-display font-bold uppercase tracking-tight text-bone leading-[0.85] text-7xl sm:text-8xl lg:text-[9rem]">
+        <h1 className="font-display font-black uppercase tracking-tight text-bone leading-[0.85] text-7xl sm:text-8xl lg:text-[9rem]">
           <span className="block overflow-hidden">
             <motion.span custom={0} variants={WORD} initial="hidden" animate="show" className="block">
               Fra idé

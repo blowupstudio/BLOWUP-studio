@@ -13,9 +13,10 @@
 
 body {
   margin: 0;
-  background-color: #0a0a0a;
-  color: #f4f4f4;
-  font-family: "Inter", system-ui, sans-serif;
+  background-color: #000000;
+  color: #ffffff;
+  font-family: "Barlow", system-ui, sans-serif;
+  font-weight: 400;
   overflow-x: hidden;
 }
 
@@ -46,7 +47,8 @@ html.lenis body {
 }
 
 .font-display {
-  font-family: "Barlow Condensed", sans-serif;
+  font-family: "Barlow", sans-serif;
+  letter-spacing: -0.01em;
 }
 
 .overline {
@@ -97,7 +99,6 @@ html.lenis body {
 }
 
 /* Custom cursor (desktop only) */
-.cursor-ring,
 .cursor-dot {
   position: fixed;
   top: 0;
@@ -107,19 +108,11 @@ html.lenis body {
   z-index: 9999;
   mix-blend-mode: difference;
   will-change: transform;
-}
-.cursor-ring {
-  width: 38px;
-  height: 38px;
-  border: 1.5px solid #fff;
-}
-.cursor-dot {
-  width: 6px;
-  height: 6px;
+  width: 10px;
+  height: 10px;
   background: #fff;
 }
 @media (hover: none), (pointer: coarse) {
-  .cursor-ring,
   .cursor-dot {
     display: none;
   }

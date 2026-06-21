@@ -4,20 +4,22 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        ink: "#0A0A0A",
-        coal: "#0E0E10",
+        ink: "#000000",
+        coal: "#0B0B0D",
         surface: "#141417",
         elevated: "#1B1B1F",
         line: "rgba(255,255,255,0.09)",
         lineStrong: "rgba(255,255,255,0.22)",
         ash: "#9A9AA0",
-        bone: "#F4F4F4",
+        bone: "#FFFFFF",
         brand: "#FFD834",
         brandDark: "#E6BE00",
+        tide: "#70C9C4",
+        tideDark: "#4FAFA9",
       },
       fontFamily: {
-        display: ['"Barlow Condensed"', "sans-serif"],
-        sans: ['"Inter"', "system-ui", "sans-serif"],
+        display: ['"Barlow"', "sans-serif"],
+        sans: ['"Barlow"', "system-ui", "sans-serif"],
       },
       maxWidth: { shell: "1320px" },
       keyframes: {

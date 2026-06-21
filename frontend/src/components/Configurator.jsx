@@ -36,7 +36,7 @@ function SessionOption({ s, selected, onSelect }) {
             Populær
           </span>
         )}
-        <span className="font-display font-bold text-2xl text-bone">{daKr(s.price)},-</span>
+        <span className="font-display font-black text-2xl text-bone">{daKr(s.price)},-</span>
       </div>
     </button>
   );
@@ -61,7 +61,7 @@ function AddonRow({ active, onToggle }) {
         </span>
         <span className="font-medium text-bone">{addonBeat.label}</span>
       </div>
-      <span className="font-display font-bold text-xl text-ash">+{addonBeat.price},-</span>
+      <span className="font-display font-black text-xl text-ash">+{addonBeat.price},-</span>
     </button>
   );
 }
@@ -70,7 +70,7 @@ function SummaryPanel({ total, addon }) {
   return (
     <div className="rounded-2xl border border-line bg-ink p-6 sm:p-8 lg:sticky lg:top-24">
       <div className="overline text-ash">Din pris</div>
-      <div className="font-display font-bold text-7xl sm:text-8xl text-brand leading-none my-3">
+      <div className="font-display font-black text-7xl sm:text-8xl text-brand leading-none my-3">
         <CountUp value={total} format={daKr} />
         <span className="text-bone text-5xl align-top">,-</span>
       </div>

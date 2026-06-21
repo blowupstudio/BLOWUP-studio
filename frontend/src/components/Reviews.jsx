@@ -12,7 +12,7 @@ function Card({ r }) {
       </div>
       <p className="text-bone/90 leading-relaxed mb-5">"{r.text}"</p>
       <div className="flex items-center gap-3">
-        <span className="h-9 w-9 rounded-full bg-brand/15 text-brand flex items-center justify-center font-display font-bold">
+        <span className="h-9 w-9 rounded-full bg-brand/15 text-brand flex items-center justify-center font-display font-black">
           {r.name.slice(0, 1)}
         </span>
         <div>
