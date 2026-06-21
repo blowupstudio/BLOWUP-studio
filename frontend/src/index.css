@@ -106,11 +106,9 @@ html.lenis body {
   border-radius: 9999px;
   pointer-events: none;
   z-index: 9999;
-  mix-blend-mode: difference;
-  will-change: transform;
   width: 10px;
   height: 10px;
-  background: #fff;
+  background: #ffd834;
 }
 @media (hover: none), (pointer: coarse) {
   .cursor-dot {

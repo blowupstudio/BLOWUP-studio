@@ -7,12 +7,12 @@ import { links, releaseTitles } from "../lib/data";
 
 export default function Releases() {
   return (
-    <section id="lyt" className="bg-ink py-20 md:py-28 border-t border-line" data-testid="releases">
+    <section id="lyt" className="bg-ink py-20 md:py-28" data-testid="releases">
       <div className="max-w-shell mx-auto px-5 md:px-8">
-        <SectionHeader index="03" label="Lyt" title="Lyt til artisterne." />
+        <SectionHeader index="02" label="Lyt" title="Lyt til artisterne." />
       </div>
 
-      <div className="my-10 border-y border-line">
+      <div className="my-10">
         <Marquee items={releaseTitles} />
       </div>
 

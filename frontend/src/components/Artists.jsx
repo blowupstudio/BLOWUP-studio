@@ -77,10 +77,10 @@ export default function Artists() {
   const scrollBy = (dir) => scroller.current?.scrollBy({ left: dir * 380, behavior: "smooth" });
 
   return (
-    <section id="artister" className="bg-surface py-20 md:py-28 border-t border-line" data-testid="artists">
+    <section id="artister" className="bg-surface py-20 md:py-28" data-testid="artists">
       <div className="max-w-shell mx-auto px-5 md:px-8">
         <div className="flex items-end justify-between gap-4">
-          <SectionHeader index="04" label="Artister" title="Energien i rummet." />
+          <SectionHeader index="03" label="Artister" title="Oplev artisterne." />
           <div className="hidden md:flex gap-2 mb-10 md:mb-14">
             <button
               onClick={() => scrollBy(-1)}

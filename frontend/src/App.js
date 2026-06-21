@@ -8,7 +8,6 @@ import Header from "./components/Header";
 import Hero from "./components/Hero";
 import Marquee from "./components/Marquee";
 import Stats from "./components/Stats";
-import Services from "./components/Services";
 import Configurator from "./components/Configurator";
 import Releases from "./components/Releases";
 import Artists from "./components/Artists";
@@ -47,7 +46,6 @@ export default function App() {
         <Hero />
         <Marquee items={marqueeWords} yellow />
         <Stats />
-        <Services />
         <Configurator />
         <Releases />
         <Artists />

@@ -1,10 +1,9 @@
 import { useState } from "react";
-import { motion } from "framer-motion";
-import { Check, ArrowUpRight, Plus } from "lucide-react";
+import { ArrowUpRight, Check, Disc3, Sparkles } from "lucide-react";
 import SectionHeader from "./SectionHeader";
 import Magnetic from "./Magnetic";
 import CountUp from "./CountUp";
-import { sessions, sessionIncludes, addonBeat, links } from "../lib/data";
+import { sessions, sessionIncludes, links } from "../lib/data";
 
 const daKr = (n) => n.toLocaleString("da-DK");
 
@@ -42,31 +41,7 @@ function SessionOption({ s, selected, onSelect }) {
   );
 }
 
-function AddonRow({ active, onToggle }) {
-  return (
-    <button
-      onClick={onToggle}
-      className={`w-full text-left rounded-2xl border p-5 sm:p-6 flex items-center justify-between gap-4 transition-colors ${
-        active ? "border-brand bg-brand/[0.07]" : "border-line bg-ink hover:border-lineStrong"
-      }`}
-      data-testid="session-addon"
-    >
-      <div className="flex items-center gap-4">
-        <span
-          className={`h-6 w-6 rounded-md border-2 flex items-center justify-center shrink-0 transition-colors ${
-            active ? "border-brand bg-brand text-ink" : "border-lineStrong text-transparent"
-          }`}
-        >
-          {active ? <Check size={15} /> : <Plus size={15} className="text-ash" />}
-        </span>
-        <span className="font-medium text-bone">{addonBeat.label}</span>
-      </div>
-      <span className="font-display font-black text-xl text-ash">+{addonBeat.price},-</span>
-    </button>
-  );
-}
-
-function SummaryPanel({ total, addon }) {
+function SummaryPanel({ total }) {
   return (
     <div className="rounded-2xl border border-line bg-ink p-6 sm:p-8 lg:sticky lg:top-24">
       <div className="overline text-ash">Din pris</div>
@@ -80,9 +55,6 @@ function SummaryPanel({ total, addon }) {
             <Check size={16} className="text-brand shrink-0" /> {f}
           </li>
         ))}
-        <motion.li initial={false} animate={{ opacity: addon ? 1 : 0.3 }} className="flex items-center gap-3 text-sm text-bone/90">
-          <Check size={16} className={addon ? "text-brand" : "text-ash"} /> {addonBeat.label}
-        </motion.li>
       </ul>
       <Magnetic className="block">
         <a
@@ -99,25 +71,66 @@ function SummaryPanel({ total, addon }) {
   );
 }
 
+function BeatCard({ href, icon: Icon, title, note, testid }) {
+  return (
+    <a
+      href={href}
+      target="_blank"
+      rel="noreferrer"
+      className="group rounded-2xl border border-line bg-ink hover:border-tide p-6 flex items-center justify-between gap-4 transition-colors"
+      data-testid={testid}
+    >
+      <div className="flex items-center gap-4">
+        <span className="h-12 w-12 rounded-xl bg-tide/15 text-tide flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform">
+          <Icon size={22} />
+        </span>
+        <div>
+          <div className="font-display font-semibold uppercase text-xl tracking-tight leading-none">{title}</div>
+          <div className="overline text-ash mt-1.5">{note}</div>
+        </div>
+      </div>
+      <ArrowUpRight size={20} className="text-ash group-hover:text-tide transition-colors shrink-0" />
+    </a>
+  );
+}
+
 export default function Configurator() {
   const [sel, setSel] = useState(sessions[1].id);
-  const [addon, setAddon] = useState(false);
   const current = sessions.find((s) => s.id === sel) ?? sessions[0];
-  const total = current.price + (addon ? addonBeat.price : 0);
+  const total = current.price;
 
   return (
-    <section id="session" className="bg-surface py-20 md:py-28 border-t border-line" data-testid="configurator">
+    <section id="session" className="bg-surface py-20 md:py-28" data-testid="configurator">
       <div className="max-w-shell mx-auto px-5 md:px-8">
-        <SectionHeader index="02" label="Byg din session" title="Sæt din pakke sammen." />
+        <SectionHeader index="01" label="Byg din session" title="Vælg din session." />
         <div className="grid lg:grid-cols-5 gap-5">
           <div className="lg:col-span-3 space-y-3">
             {sessions.map((s) => (
               <SessionOption key={s.id} s={s} selected={s.id === sel} onSelect={setSel} />
             ))}
-            <AddonRow active={addon} onToggle={() => setAddon((v) => !v)} />
           </div>
           <div className="lg:col-span-2">
-            <SummaryPanel total={total} addon={addon} />
+            <SummaryPanel total={total} />
+          </div>
+        </div>
+
+        <div className="mt-14">
+          <div className="overline text-ash mb-4">Eller køb et beat</div>
+          <div className="grid sm:grid-cols-2 gap-4">
+            <BeatCard
+              href={links.readyBeat}
+              icon={Disc3}
+              title="Køb færdigt beat"
+              note="BeatStars"
+              testid="buy-ready-beat"
+            />
+            <BeatCard
+              href={links.customBeat}
+              icon={Sparkles}
+              title="Køb skræddersyet beat"
+              note="Instagram · co-prod"
+              testid="buy-custom-beat"
+            />
           </div>
         </div>
       </div>

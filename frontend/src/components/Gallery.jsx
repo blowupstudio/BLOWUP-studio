@@ -9,9 +9,9 @@ export default function Gallery() {
   const [active, setActive] = useState(null);
 
   return (
-    <section className="bg-ink py-20 md:py-28 border-t border-line" data-testid="gallery">
+    <section className="bg-ink py-20 md:py-28" data-testid="gallery">
       <div className="max-w-shell mx-auto px-5 md:px-8">
-        <SectionHeader index="05" label="Rummet" title="Et rum at lave hits i." />
+        <SectionHeader index="04" label="Rummet" title="Et rum at lave hits i." />
 
         <div className="grid grid-cols-2 md:grid-cols-3 auto-rows-[170px] md:auto-rows-[230px] gap-3 sm:gap-4">
           {gallery.map((src, i) => (

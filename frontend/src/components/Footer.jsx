@@ -35,7 +35,7 @@ function SocialLinks() {
 
 export default function Footer() {
   return (
-    <footer className="bg-ink border-t border-line overflow-hidden" data-testid="footer">
+    <footer className="bg-ink overflow-hidden" data-testid="footer">
       <div className="max-w-shell mx-auto px-5 md:px-8 pt-16">
         <div className="flex flex-col md:flex-row md:items-center justify-between gap-8 pb-12">
           <div>

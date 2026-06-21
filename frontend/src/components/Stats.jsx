@@ -8,7 +8,7 @@ export default function Stats() {
   const inView = useInView(ref, { once: true, margin: "-80px" });
 
   return (
-    <section ref={ref} className="bg-ink border-y border-line" data-testid="stats">
+    <section ref={ref} className="bg-ink" data-testid="stats">
       <div className="max-w-shell mx-auto px-5 md:px-8 grid grid-cols-3 divide-x divide-line">
         {stats.map((s) => (
           <div key={s.label} className="py-10 sm:py-14 px-3 text-center">

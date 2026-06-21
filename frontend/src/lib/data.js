@@ -2,7 +2,7 @@ export const links = {
   home: "https://blowupstudio.dk/",
   booking: "https://blowup-studio.planway.com/",
   readyBeat: "https://www.beatstars.com/blowupstudio",
-  customBeat: "https://www.instagram.com/blowup_studio_coprod/",
+  customBeat: "https://www.instagram.com/blowup_studio_coprod?igsh=Zm1scmZrZWh4MHFs&utm_source=qr",
   instagram: "https://www.instagram.com/blowup_studio/",
   youtube: "https://youtube.com/@BLOWUP_studio?si=662OrVgAfNgG2IBz",
   tiktok: "https://www.tiktok.com/@blowupstudio?_r=1&_t=ZN-96m6FoQV5r4",
@@ -18,7 +18,6 @@ export const links = {
 export const asset = (name) => `/assets/site/${name}`;
 
 export const nav = [
-  { label: "Studie", href: "#studie" },
   { label: "Session", href: "#session" },
   { label: "Lyt", href: "#lyt" },
   { label: "Artister", href: "#artister" },
