@@ -23,6 +23,7 @@ export default function Hero() {
         muted
         loop
         playsInline
+        preload="auto"
       />
       <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/75 to-ink/30" />
 

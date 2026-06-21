@@ -80,3 +80,12 @@ EOF
 
 ### Known (pre-existing, third-party, not a regression)
 - Spotify embed in Releases can throw a locale RangeError + blank white box in automated/odd-locale browsers; normal DK users unaffected. React minified #418 on load (non-blocking).
+
+## Update 2026-06-21 (d) — New video, owner section, socials (verified 7/7)
+- Hero video replaced with user's high-quality clip: converted .mov → web mp4 (H.264, faststart, no audio) at /assets/site/studio-hero.mp4 + new poster studio-hero-poster.jpg. Added preload="auto".
+- NEW Owner.jsx section (id="om", index 05, "Manden bag." — Patrick Forslund) with photo /assets/site/patrick.jpeg (white-bg portrait framed on dark), bio, quote, Book→Planway. Inserted after Gallery.
+- NEW Socials.jsx subtle band after Contact ("Følg BLOWUP": Instagram/YouTube/TikTok/Discord). Removed duplicate social icons from Footer and Contact CTA card.
+- Hero secondary link text → "Se sessions, beats og dine andre muligheder" (still → #session).
+- Header brand → "BLOWUP studio". Gallery(04) title → "Oplev studiet.". Reviews(06) title → "Hvad artisterne siger.". Contact index → 07. Nav adds "Om" → #om.
+- Section order: Hero→marquee→Stats→01 Session→02 Lyt→03 Artister→04 Studiet→05 Manden bag→06 Artisterne siger→07 Kontakt→Socials→Footer.
+- Verified by testing agent iteration_7.json: 100% pass, positive aesthetic verdicts on Owner + Socials, no overflow/regressions.
