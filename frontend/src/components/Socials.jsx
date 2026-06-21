@@ -1,11 +1,16 @@
-import { Instagram, Youtube, Music2, MessageCircle } from "lucide-react";
+import { Instagram, Youtube, Music2 } from "lucide-react";
 import { links } from "../lib/data";
 
 const socials = [
-  { label: "Instagram", href: links.instagram, icon: Instagram },
-  { label: "YouTube", href: links.youtube, icon: Youtube },
-  { label: "TikTok", href: links.tiktok, icon: Music2 },
-  { label: "Discord", href: links.discord, icon: MessageCircle },
+  { id: "instagram", label: "Instagram", href: links.instagram, icon: Instagram },
+  { id: "youtube", label: "YouTube", href: links.youtube, icon: Youtube },
+  { id: "tiktok", label: "TikTok", href: links.tiktok, icon: Music2 },
+  {
+    id: "youtube-artist",
+    label: "YouTube · Artist",
+    href: "https://youtube.com/@blowup_artist?si=zK0PAvq5eEExstur",
+    icon: Youtube,
+  },
 ];
 
 export default function Socials() {
@@ -22,12 +27,12 @@ export default function Socials() {
             const Icon = s.icon;
             return (
               <a
-                key={s.label}
+                key={s.id}
                 href={s.href}
                 target="_blank"
                 rel="noreferrer"
                 className="group inline-flex items-center gap-2.5 border border-line bg-ink rounded-none px-4 py-3 text-bone hover:border-brand hover:text-brand transition-colors"
-                data-testid={`social-${s.label.toLowerCase()}`}
+                data-testid={`social-${s.id}`}
               >
                 <Icon size={18} className="text-brand group-hover:text-brand" />
                 <span className="overline">{s.label}</span>
