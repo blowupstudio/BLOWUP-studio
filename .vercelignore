@@ -1,0 +1,5 @@
+node_modules/
+dist/
+source-site/
+verification/
+public/assets/site/*.mov
