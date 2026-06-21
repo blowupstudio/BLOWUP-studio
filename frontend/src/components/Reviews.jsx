@@ -41,7 +41,7 @@ export default function Reviews() {
   return (
     <section className="bg-surface py-20 md:py-28 overflow-hidden" data-testid="reviews">
       <div className="max-w-shell mx-auto px-5 md:px-8">
-        <SectionHeader index="05" label="Ord" title="Hvad kunderne siger." />
+        <SectionHeader index="06" label="Ord" title="Hvad artisterne siger." />
       </div>
       <div className="space-y-4">
         <Row />

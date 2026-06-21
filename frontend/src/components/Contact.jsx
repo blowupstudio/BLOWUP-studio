@@ -1,19 +1,13 @@
-import { Mail, MapPin, ArrowUpRight, Instagram, Youtube, MessageCircle } from "lucide-react";
+import { Mail, MapPin, ArrowUpRight } from "lucide-react";
 import SectionHeader from "./SectionHeader";
 import Magnetic from "./Magnetic";
 import { links } from "../lib/data";
-
-const socials = [
-  { label: "Instagram", href: links.instagram, icon: Instagram },
-  { label: "YouTube", href: links.youtube, icon: Youtube },
-  { label: "Discord", href: links.discord, icon: MessageCircle },
-];
 
 export default function Contact() {
   return (
     <section id="kontakt" className="bg-ink py-20 md:py-28" data-testid="contact">
       <div className="max-w-shell mx-auto px-5 md:px-8">
-        <SectionHeader index="06" label="Kontakt" title="Kontakt." />
+        <SectionHeader index="07" label="Kontakt" title="Kontakt." />
 
         <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-stretch">
           <div className="flex flex-col gap-4">
@@ -67,24 +61,6 @@ export default function Contact() {
                     Book din session <ArrowUpRight size={16} />
                   </a>
                 </Magnetic>
-                <div className="flex gap-3">
-                  {socials.map((s) => {
-                    const Icon = s.icon;
-                    return (
-                      <a
-                        key={s.label}
-                        href={s.href}
-                        target="_blank"
-                        rel="noreferrer"
-                        aria-label={s.label}
-                        className="h-11 w-11 rounded-none border border-line hover:border-brand hover:text-brand text-bone flex items-center justify-center transition-colors"
-                        data-testid={`contact-social-${s.label.toLowerCase()}`}
-                      >
-                        <Icon size={18} />
-                      </a>
-                    );
-                  })}
-                </div>
               </div>
             </div>
           </div>

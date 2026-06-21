@@ -10,8 +10,10 @@ import Configurator from "./components/Configurator";
 import Releases from "./components/Releases";
 import Artists from "./components/Artists";
 import Gallery from "./components/Gallery";
+import Owner from "./components/Owner";
 import Reviews from "./components/Reviews";
 import Contact from "./components/Contact";
+import Socials from "./components/Socials";
 import Footer from "./components/Footer";
 import { marqueeWords } from "./lib/data";
 
@@ -46,8 +48,10 @@ export default function App() {
         <Releases />
         <Artists />
         <Gallery />
+        <Owner />
         <Reviews />
         <Contact />
+        <Socials />
       </main>
       <Footer />
     </div>

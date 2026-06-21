@@ -18,7 +18,7 @@ export default function Hero() {
       <video
         className="absolute inset-0 h-full w-full object-cover"
         src={asset("studio-hero.mp4")}
-        poster={asset("gallery-1.jpg")}
+        poster={asset("studio-hero-poster.jpg")}
         autoPlay
         muted
         loop
@@ -71,7 +71,7 @@ export default function Hero() {
             className="inline-flex items-center justify-center gap-2 text-bone/90 hover:text-brand font-medium transition-colors"
             data-testid="hero-products-btn"
           >
-            Se sessions &amp; beats <ArrowRight size={16} />
+            Se sessions, beats og dine andre muligheder <ArrowRight size={16} />
           </a>
         </div>
       </div>

@@ -21,6 +21,7 @@ export const nav = [
   { label: "Session", href: "#session" },
   { label: "Lyt", href: "#lyt" },
   { label: "Artister", href: "#artister" },
+  { label: "Om", href: "#om" },
   { label: "Kontakt", href: "#kontakt" },
 ];
 
