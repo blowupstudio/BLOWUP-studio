@@ -89,3 +89,10 @@ EOF
 - Header brand → "BLOWUP studio". Gallery(04) title → "Oplev studiet.". Reviews(06) title → "Hvad artisterne siger.". Contact index → 07. Nav adds "Om" → #om.
 - Section order: Hero→marquee→Stats→01 Session→02 Lyt→03 Artister→04 Studiet→05 Manden bag→06 Artisterne siger→07 Kontakt→Socials→Footer.
 - Verified by testing agent iteration_7.json: 100% pass, positive aesthetic verdicts on Owner + Socials, no overflow/regressions.
+
+## Update 2026-06-21 (e) — Owner section refinements
+- Replaced Patrick Forslund bio with user-provided text (3 paragraphs: passion since age 9, live+studio experience/DAWs FL Studio, focus on quality/identity).
+- Owner section title "Manden bag." → "Om os." (role line now "Stifter & producer · Patrick Forslund").
+- Removed the "BLOWUP · Hedehusene" yellow tag overlay on Patrick's photo.
+- Removed the "Book en session med Patrick" button from the Owner section.
+- Sound on/off toggle: already removed in iteration (d); only the bg video `muted` attribute remains (no UI control).
