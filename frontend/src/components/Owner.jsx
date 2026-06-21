@@ -19,10 +19,7 @@ export default function Owner() {
           </Reveal>
 
           <div className="order-2">
-            <Reveal className="mb-3">
-              <span className="font-display text-brand text-lg font-black leading-none tracking-tight">05</span>
-            </Reveal>
-            <Reveal as="h2" delay={0.05} className="font-display font-black uppercase text-4xl sm:text-5xl md:text-6xl leading-[0.95] tracking-tight">
+            <Reveal as="h2" className="font-display font-black uppercase text-4xl sm:text-5xl md:text-6xl leading-[0.95] tracking-tight">
               Om os.
             </Reveal>
             <Reveal delay={0.1} className="overline text-tide mt-4">
