@@ -1,0 +1,13 @@
+node_modules/
+dist/
+.DS_Store
+*.tsbuildinfo
+source-site/
+verification/
+.env
+.env.*
+*.env
+credentials.json
+*.pem
+*.key
+.credentials

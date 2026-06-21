@@ -1,0 +1,54 @@
+{
+  "summary": "Iteration 2 — Full backend + desktop + mobile regression after the visual redesign. Backend 4/4 pytest pass; the `_id`→`id` fix on GET /api/contacts is verified (response now exposes `id` only, no `_id`). Desktop: hero, yellow Book session pill, all 6 nav links smooth-scroll to their sections, numbered SectionHeaders 01..08 render, yellow marquee under hero, artists video swap, gallery lightbox open/close, 5 pricing cards with middle 'Hverdags-session' highlighted by 'Mest værdi' yellow badge, contact form POSTs to /api/contact (200) and shows success. Mobile (390x844): hamburger opens mobile menu, mobile-nav-priser scrolls to #priser, hero/CTAs stack full-width, pricing collapses to 1 column, contact form is fillable. ONE MOBILE BUG: #artister overflows the viewport by ~22px on mobile causing horizontal scroll (docW=412 vs winW=390).",
+  "backend_issues": {
+    "critical": [],
+    "minor": []
+  },
+  "frontend_issues": {
+    "ui_bugs": [
+      {
+        "component": "Artists.jsx (#artister)",
+        "issue": "Horizontal overflow on mobile (~22px). At viewport 390x844, document.scrollWidth=412 because content inside #artister grid extends from left=20 to right=412. Inner divs (lg:col-span-2 wrapper, the aspect-video iframe wrapper, and each video-item button list) measure 392px wide. This is the only section that overflows — all other sections (studie, proces, priser, udgivelser, kontakt) report scrollWidth == 390. Likely cause: `grid lg:grid-cols-3` on the inner container combined with the iframe/aspect-video item's intrinsic min-content/min-width:auto pushing the column wider than the viewport on small screens.",
+        "selector": "section#artister .grid",
+        "priority": "MEDIUM"
+      },
+      {
+        "component": "Header.jsx mobile-menu-toggle",
+        "issue": "Tap target is 34x34px — below the recommended ~44px minimum for mobile touch targets (Apple HIG / Material).",
+        "selector": "[data-testid='mobile-menu-toggle']",
+        "priority": "LOW"
+      }
+    ],
+    "integration_issues": [],
+    "design_issues": [
+      {
+        "screen": "Releases (Spotify embed)",
+        "issues": ["Third-party Spotify embed still logs noisy console errors in headless Chromium — explicitly out-of-scope per request, not blocking."]
+      }
+    ]
+  },
+  "test_report_links": [
+    "/app/backend/tests/backend_test.py",
+    "/app/test_reports/pytest/pytest_results.xml"
+  ],
+  "action_items": [
+    "Fix #artister mobile horizontal overflow. Quickest fix: ensure children cannot exceed parent width — add `min-w-0` to `Reveal.lg:col-span-2` and to the video-list `flex flex-col` container, and/or set `max-w-full overflow-hidden` on the inner grid. Also consider `min-w-0` on the iframe wrapper.",
+    "(Optional) Increase mobile-menu-toggle tap target to >=44x44 (e.g., p-2.5 → p-3 or add `min-h-[44px] min-w-[44px]`)."
+  ],
+  "critical_code_review_comments": [
+    "Artists.jsx: child containers inside the grid lack `min-w-0`, which is the standard tailwind/flex/grid fix to prevent intrinsic content (iframes, long text) from forcing the column to overflow the parent. The lg-only constraints (`lg:max-h-[480px] lg:overflow-y-auto`) do nothing on mobile, so the list buttons size to content.",
+    "server.py is now consistent: GET /api/contacts has `response_model_by_alias=False`; verified in tests that response items contain only `id` (no `_id`). Good fix.",
+    "CORS_ORIGINS='*' with allow_credentials=True is still in backend/.env — browsers reject credentialed CORS with wildcard; harmless here (no auth) but should be tightened pre-production.",
+    "Hero.jsx headline is still split across spans/lines; for testability consider wrapping the full text in a `[data-testid='hero-headline']` element so exact-text selectors work."
+  ],
+  "updated_files": [
+    "/app/backend/tests/backend_test.py (strengthened to assert response items contain `id` and NOT `_id`)"
+  ],
+  "success_rate": {"backend": "100% (4/4 pytest)", "frontend": "Desktop 100% of review items; Mobile 95% — 1 horizontal-overflow bug in #artister"},
+  "test_credentials": "N/A (no auth)",
+  "seed_data_creation": "Created additional TEST_ prefixed contacts via pytest (TEST_Patrick QA, TEST_minimal) and via Playwright on desktop (TEST_Playwright2). All persisted in MongoDB `contacts` collection.",
+  "retest_needed": true,
+  "should_main_agent_self_test": true,
+  "context_for_next_testing_agent": "Backend tests in /app/backend/tests/backend_test.py — 4/4 pass; GET /api/contacts now returns objects with `id` only (no `_id`). Nav testids are LOWERCASE: `nav-studie`, `nav-proces`, `nav-priser`, `nav-udgivelser`, `nav-artister`, `nav-kontakt` (and `mobile-nav-<label>` likewise). SectionHeader labels render UPPERCASE in DOM ('03 PRISER' not '03 Priser'). Pricing featured/highlighted card is index 1 (`price-card-1` = Hverdags-session). Use `window.lenis.scrollTo('#id',{immediate:true})` for instant navigation since Lenis intercepts native scroll. Mobile horizontal-overflow root cause is inside #artister grid — fix by adding `min-w-0` to grid children.",
+  "rca of the issue": "Mobile #artister overflow: tailwind grid items default to `min-width:auto` (= min-content). The video-list buttons contain non-truncated content and the iframe-wrapper has `aspect-video` with `w-full`, so on a 390px viewport the grid column resolves to ~392px (content-driven), causing the entire section to be 22px wider than the viewport. Fix: add `min-w-0` to both the `lg:col-span-2` Reveal wrapper and the `flex flex-col` list container (and ideally `truncate` on the inner text), so children honor the parent width."
+}

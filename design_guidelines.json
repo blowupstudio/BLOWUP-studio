@@ -1,0 +1,137 @@
+{
+  "project_name": "BLOWUP studio Redesign",
+  "domain": "Music Recording Studio",
+  "theme": "dark",
+  "archetype": "5 (Luxury) combined with 4 (Swiss & High-Contrast)",
+  "mood": "Cinematic, moody, energetic, premium, bold, industrial studio console",
+  "colors": {
+    "background": "#050505",
+    "surface": "#0F0F0F",
+    "surface_glass": "rgba(20, 20, 20, 0.6)",
+    "primary": "#E63946",
+    "primary_hover": "#FF4D5A",
+    "primary_foreground": "#FFFFFF",
+    "secondary": "#1A1A1A",
+    "secondary_foreground": "#E5E5E5",
+    "muted": "#262626",
+    "muted_foreground": "#8C8C8C",
+    "border": "rgba(255, 255, 255, 0.08)",
+    "border_highlight": "rgba(255, 255, 255, 0.2)",
+    "ring": "#E63946"
+  },
+  "typography": {
+    "fonts": {
+      "headings": "Clash Display, sans-serif",
+      "body": "Satoshi, sans-serif",
+      "mono": "JetBrains Mono, monospace"
+    },
+    "rules": {
+      "h1": "text-4xl sm:text-5xl lg:text-6xl font-semibold tracking-tighter uppercase",
+      "h2": "text-3xl sm:text-4xl lg:text-5xl font-medium tracking-tight",
+      "h3": "text-xl sm:text-2xl font-medium tracking-tight",
+      "body": "text-base lg:text-lg leading-relaxed text-muted-foreground",
+      "overline": "text-xs font-mono uppercase tracking-[0.2em] text-primary"
+    }
+  },
+  "spacing_and_layout": {
+    "container": "max-w-[1400px] mx-auto px-6 md:px-12",
+    "section_spacing": "py-24 md:py-32",
+    "grid_bento": "grid grid-cols-1 md:grid-cols-12 gap-6",
+    "cards": "rounded-none border border-white/10 bg-[#0F0F0F] p-8 md:p-12 relative overflow-hidden",
+    "padding_generous": "Use p-8 to p-12 inside bordered containers to avoid text collision"
+  },
+  "components": {
+    "hero": {
+      "layout": "min-h-[90vh] flex flex-col justify-end pb-24 px-6 md:px-12 relative",
+      "background": "Dark overlay (bg-black/60 to bg-black/30) over the studio gallery image. Heavy noise texture overlay. Ensure image isn't lost in darkness.",
+      "typography": "Massive H1 left-aligned, max-w-4xl. Overline in primary color.",
+      "ctas": "Primary button flat with sharp edges. Secondary button outline with glass effect."
+    },
+    "marquee": {
+      "style": "Kinetic Texture. Massive outline text (text-6xl) 'MIX • MASTER • BEAT • COACHING' running slowly in background with opacity-5. Use react-fast-marquee."
+    },
+    "stats_badges": {
+      "style": "Floating glass capsules in hero. backdrop-blur-xl bg-white/5 border border-white/10 px-4 py-2 flex items-center gap-2 text-sm font-mono."
+    },
+    "process_bento": {
+      "style": "Mode B: Control Room Grid. 4 steps. Sharp edges, 1px solid border-border. Large mono numbers (01, 02) in the corner with opacity-20."
+    },
+    "pricing": {
+      "style": "The 'Tracing Beam' or subtle glassmorphism for normal tiers. The 'Mest Værdi' tier gets a persistent primary border and a slight y-offset (-translate-y-4 on lg). Use Shadcn button for booking.",
+      "tiers": [
+        {"name": "Tidlig / sen session", "hours": "3 timer", "price": "1.450,-"},
+        {"name": "Hverdags-session", "hours": "6 timer", "price": "2.000,-", "highlight": true},
+        {"name": "Weekend-session", "hours": "6 timer", "price": "2.400,-"},
+        {"name": "Mix / master", "hours": "Fra bunden", "price": "2.000,-"},
+        {"name": "Skræddersyet beat", "hours": "Custom", "price": "400,-"}
+      ]
+    },
+    "gallery": {
+      "style": "Mode A: Tetris Grid. Asymmetric mix of landscape and portrait studio shots. Hover scale 1.05 with image brightness transition from 0.8 to 1."
+    },
+    "player_spotify": {
+      "style": "Embed integrated into a dark card with glowing ambient shadow behind it, so it doesn't look like a standard iframe drop-in."
+    },
+    "artists_youtube": {
+      "style": "Bento layout of youtube thumbnails with play button overlay."
+    },
+    "buttons": {
+      "primary": "bg-primary text-white uppercase font-mono text-sm tracking-wider px-8 py-4 hover:bg-primary_hover transition-colors rounded-none inline-flex items-center justify-center",
+      "outline": "border border-white/20 hover:border-white/50 text-white uppercase font-mono text-sm tracking-wider px-8 py-4 transition-colors rounded-none inline-flex items-center justify-center"
+    }
+  },
+  "motion_and_effects": {
+    "hover_states": "Buttons and links must explicitly shift text or border colors. Cards lift slightly (-translate-y-1) and borders illuminate to white/30.",
+    "scroll_reveal": "Staggered fade-up for bento grid items using Framer Motion.",
+    "textures": "Global fixed div with pointer-events-none holding a subtle noise/grain SVG (opacity 3% to 5%) to kill the flat digital look.",
+    "scrolling": "MANDATORY: Use lenis library for premium momentum smooth scrolling."
+  },
+  "media": {
+    "images": {
+      "hero_bg": {
+        "url": "https://blowup-studio-redesign.vercel.app/assets/site/gallery-1.jpg",
+        "description": "Main hero background, requires bg-black/60 overlay to ensure text contrast."
+      },
+      "patrick_profile": {
+        "url": "https://blowup-studio-redesign.vercel.app/assets/site/patrick.jpg",
+        "description": "Producer profile image."
+      },
+      "gallery": [
+        "https://blowup-studio-redesign.vercel.app/assets/site/gallery-2.jpg",
+        "https://blowup-studio-redesign.vercel.app/assets/site/gallery-3.jpg",
+        "https://blowup-studio-redesign.vercel.app/assets/site/gallery-4.jpg",
+        "https://blowup-studio-redesign.vercel.app/assets/site/gallery-5.jpg"
+      ],
+      "youtube_thumbnails": [
+        "https://blowup-studio-redesign.vercel.app/assets/site/youtube-nikz.jpg",
+        "https://blowup-studio-redesign.vercel.app/assets/site/youtube-micass.jpg",
+        "https://blowup-studio-redesign.vercel.app/assets/site/youtube-zzz.jpg",
+        "https://blowup-studio-redesign.vercel.app/assets/site/youtube-yayo.jpg",
+        "https://blowup-studio-redesign.vercel.app/assets/site/youtube-stjerner.jpg"
+      ]
+    },
+    "embeds": {
+      "spotify_playlist": "https://open.spotify.com/playlist/71CAFwukAKylGAjjmCwMrT?go=1&sp_cid=addab02f760b2dbbaa0ba9fcafc4e73c&utm_source=embed_player_p&utm_medium=desktop"
+    }
+  },
+  "content_danish": {
+    "hero_h1": "FRA IDE TIL RELEASE-KLAR SANG.",
+    "hero_sub": "Oplev din musik stige til nye højder i DK's bedste studie. BLOWUP studio tilbyder professionel hjælp til mix, master, beats og tekster.",
+    "stats": ["5.0 Google-stemning", "3-6t Sessioner", "Alt-i-en proces"],
+    "process_steps": [
+      {"title": "1. Retning", "desc": "Vi finder vibe, reference og mål, så sessionen starter med en klar plan."},
+      {"title": "2. Optagelse", "desc": "Patrick coacher flow, energi og delivery, mens takes bliver bygget hurtigt op."},
+      {"title": "3. Sound", "desc": "Beat, vokalchain, mix og master formes omkring artisten, ikke omvendt."},
+      {"title": "4. Release", "desc": "Du går derfra med en sang, der føles tættere på færdig end bare en demo."}
+    ],
+    "reviews": [
+      {"name": "Pelle Krusbæk", "text": "Varmeste producer i Danmark. Gratis øl."},
+      {"name": "Willow", "text": "Meget seriøst og produktivt arbejde, rigtig god og talentfuld producer der ved hvad han laver."}
+    ]
+  },
+  "accessibility_and_testing": {
+    "testing_attributes": "All interactive elements MUST have data-testid matching role-based kebab-case (e.g. data-testid='book-session-hero-btn')",
+    "contrast": "Text must pass APCA contrast on top of #050505 background. Overlaid text on images requires text-shadow or gradient scrim."
+  },
+  "instructions_to_main_agent": "Use React with Tailwind CSS and Framer Motion. DO NOT use generic fonts like Inter for headings. Apply Clash Display or Cabinet Grotesk. Implement a global noise overlay (SVG filter). Do NOT center-align the hero; use strong asymmetrical layout. Ensure dark mode is hardcoded (no light mode toggle). Embed the Spotify playlist iframe in the 'Udgivelser' section. Build a dynamic Bento grid for the gallery and process steps. All text must be in Danish as provided. MUST use lenis for smooth scrolling."
+}

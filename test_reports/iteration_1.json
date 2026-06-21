@@ -1,0 +1,45 @@
+{
+  "summary": "First iteration. Completed backend (pytest) + frontend (Playwright) e2e tests for BLOWUP studio site. All 9 review-request items verified. Backend: 4/4 tests pass — /api/health OK, POST /api/contact creates and persists, GET /api/contacts lists it. Frontend: hero CTAs, full 6-item nav with smooth-scroll (window.lenis), all 6 sections (#studie #proces #priser #udgivelser #artister #kontakt), 5 gallery items + lightbox open/close, artists video swap (YouTube iframe src changed on click), and contact form POST (200, success message shown) all working.",
+  "backend_issues": {
+    "critical": [],
+    "minor": [
+      {
+        "endpoint": "GET /api/contacts",
+        "issue": "Response leaks Mongo `_id` field instead of `id`. The Contact pydantic model defines `id` aliased to `_id`, but FastAPI's jsonable_encoder dumps by alias by default, so the JSON exposes `_id` (a 24-hex-char string). POST /api/contact returns `id` (correct). The contract is inconsistent and the test_create_contact_persists_and_appears_in_list initially failed because of this. Fix: in server.py either set `response_model_by_alias=False` on the route, or override Contact serializer to dump by field name, or return a plain dict mapping `_id` -> `id`."
+      }
+    ]
+  },
+  "frontend_issues": {
+    "ui_bugs": [],
+    "integration_issues": [],
+    "design_issues": [
+      {
+        "screen": "Releases (Spotify embed)",
+        "issues": ["Third-party Spotify embed logs RangeError 'Incorrect locale information provided' and a Next.js client-side exception (React min error #418) in headless Chromium. Not blocking and explicitly out-of-scope per request, but worth noting if it occurs for real users in some locales."]
+      }
+    ]
+  },
+  "test_report_links": [
+    "/app/backend/tests/backend_test.py",
+    "/app/test_reports/pytest/pytest_results.xml"
+  ],
+  "action_items": [
+    "(Optional, minor) Make GET /api/contacts return `id` instead of `_id` for consistency with POST /api/contact response."
+  ],
+  "critical_code_review_comments": [
+    "server.py Contact model: alias='_id' combined with FastAPI's default by_alias serialization causes raw mongo `_id` to leak to clients. Use `response_model_exclude={'id'}` or return `{'id': str(d['_id']), ...}` explicitly, or pass `response_model_by_alias=False`.",
+    "CORS_ORIGINS is wildcarded ('*') with allow_credentials=True — browsers will reject credentialed requests; fine here since no cookies/auth are used, but should be tightened before production.",
+    "Hero headline 'Fra idé til release-klar sang.' is split across multiple spans/lines in Hero.jsx so playwright exact text match fails; consider adding a data-testid='hero-headline' wrapper for testability.",
+    "App.js uses Lenis smooth scroll which intercepts native scrollTo — fine, but for native anchor links in some browsers (older Safari) verify graceful fallback (currently handled with `else document.querySelector(href)?.scrollIntoView`)."
+  ],
+  "updated_files": [
+    "/app/backend/tests/backend_test.py"
+  ],
+  "success_rate": {"backend": "100% (4/4)", "frontend": "100% (all flows in review request verified)"},
+  "test_credentials": "N/A (no auth)",
+  "seed_data_creation": "Created 2 TEST_ prefixed contacts via POST /api/contact during pytest run + 1 TEST_Playwright contact during UI test. All persisted in MongoDB 'contacts' collection.",
+  "retest_needed": false,
+  "should_main_agent_self_test": true,
+  "context_for_next_testing_agent": "Backend tests live in /app/backend/tests/backend_test.py and pass with pytest. Use BASE_URL from REACT_APP_BACKEND_URL. Lenis smooth scroll attaches as window.lenis; use window.lenis.scrollTo(target, {immediate:true}) or click nav links for navigation. Spotify embed always logs console errors in headless — ignore. Hero h1 text is split across spans, use selector based on `[data-testid='hero']` or partial text instead of exact match.",
+  "rca of the issue": "Minor /api/contacts _id leak: Contact pydantic model uses `Field(alias='_id')` for `id`. FastAPI's response_model serialization via jsonable_encoder uses by_alias=True by default, so the alias `_id` is emitted instead of the field name `id`. POST endpoint returns a plain dict so no alias issue there. Fix: add `response_model_by_alias=False` to the route decorator for GET /api/contacts, OR return a hand-built dict, OR set `model_config = ConfigDict(populate_by_name=True, ser_json_by_alias=False)` and ensure FastAPI honors it."
+}
