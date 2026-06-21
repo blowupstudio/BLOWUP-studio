@@ -66,3 +66,17 @@ EOF
 ### Backlog
 - Pre-existing non-blocking React minified error #418 (likely Preloader/motion hydration) — investigate later.
 - Dead code: Services.jsx unused + addonBeat/topics exports in data.js unused — optional cleanup.
+
+## Update 2026-06-21 (c) — Square identity + UX cleanup (verified 10/10)
+- Removed all remaining divider lines (header border-b, mobile menu/nav borders, footer copyright border, stats divide-x) — no lines over titles.
+- SectionHeader now shows only index number + ONE big title (small uppercase label no longer rendered).
+- Stats: "6t / Max session" → "3–6t / Timers session" (Stats uses `display` field; data.js updated).
+- Hero: removed sound on/off toggle (no audio); secondary link now upsells to #session ("Se sessions & beats", data-testid hero-products-btn) instead of playlist.
+- Beats redesigned to cohere with session options: "Beats — køb direkte" subgroup with matching squared turquoise BeatRow cards in same column. Ready→BeatStars, Custom→Instagram coprod. Sessions still → Planway.
+- Contact (06): title "Sig hej." → "Kontakt.".
+- Black-square scroll artifact FIXED: removed custom Cursor + Noise/grain overlay + backdrop-filter on .glass (now solid). Cursor.jsx & Noise.jsx deleted.
+- Global SQUARE aesthetic: all rounded-* → rounded-none (buttons/cards/badges border-radius 0).
+- Verified by testing agent iteration_6.json: 10/10 pass, no black square across full scroll, no mobile overflow.
+
+### Known (pre-existing, third-party, not a regression)
+- Spotify embed in Releases can throw a locale RangeError + blank white box in automated/odd-locale browsers; normal DK users unaffected. React minified #418 on load (non-blocking).
