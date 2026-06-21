@@ -41,3 +41,14 @@ BLOWUP studio is a music recording studio in Hedehusene, Denmark (producer Patri
 - P2: Admin view for contact inquiries; SEO/OG tags & sitemap; deploy pipeline.
 - P2: Booking availability preview pulled from Planway, multi-language (EN) toggle.
 EOF
+
+## Update 2026-06-21 — Visual identity & polish pass
+- Removed custom cursor RING (Cursor.jsx now only renders .cursor-dot, 10px).
+- Removed decorative divider line above section titles (SectionHeader.jsx: dropped `h-px w-8 bg-brand`).
+- Yellow keyword marquee (Marquee.jsx): 4x repeats + responsive padding `px-8 sm:px-14 lg:px-20` → keywords now span full width on desktop, no right-side white space.
+- Brand identity aligned: fonts → Barlow (headings Barlow Black/900 via `font-black`, body Barlow Regular/400). Loaded Barlow from Google Fonts (replaced Barlow Condensed + Inter).
+- Palette set in tailwind.config.js: brand #FFD834, tide(turquoise) #70C9C4, ink #000000, bone #FFFFFF. Turquoise used on non-yellow Releases marquee asterisks.
+- Verified frontend-only by testing agent (iteration_4.json): 5/5 visual checks pass, no mobile horizontal overflow.
+
+### Backlog / Notes
+- Spotify iframe in #lyt shows a client-side error white box in headless Chromium only (pre-existing, out of scope). Consider a graceful fallback CTA if the embed fails.
