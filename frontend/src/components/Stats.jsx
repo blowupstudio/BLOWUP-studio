@@ -9,12 +9,12 @@ export default function Stats() {
 
   return (
     <section ref={ref} className="bg-ink" data-testid="stats">
-      <div className="max-w-shell mx-auto px-5 md:px-8 grid grid-cols-3 divide-x divide-line">
+      <div className="max-w-shell mx-auto px-5 md:px-8 grid grid-cols-3">
         {stats.map((s) => (
           <div key={s.label} className="py-10 sm:py-14 px-3 text-center">
             <div className="font-display font-black text-5xl sm:text-7xl text-bone leading-none">
-              {s.decimals ? (
-                s.decimals
+              {s.display ? (
+                s.display
               ) : (
                 <CountUp value={inView ? s.value : 0} />
               )}

@@ -28,8 +28,8 @@ export const marqueeWords = ["MIX", "MASTER", "BEATS", "COACHING", "VOKAL", "TOP
 
 export const stats = [
   { value: 100, suffix: "+", label: "Udgivelser" },
-  { value: 5, decimals: "5.0", label: "Google rating" },
-  { value: 6, suffix: "t", label: "Max session" },
+  { display: "5.0", label: "Google rating" },
+  { display: "3–6", suffix: "t", label: "Timers session" },
 ];
 
 export const services = [

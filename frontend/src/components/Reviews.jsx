@@ -4,7 +4,7 @@ import { reviews } from "../lib/data";
 
 function Card({ r }) {
   return (
-    <article className="w-[290px] sm:w-[360px] shrink-0 border border-line bg-surface rounded-2xl p-6">
+    <article className="w-[290px] sm:w-[360px] shrink-0 border border-line bg-surface rounded-none p-6">
       <div className="flex text-brand mb-3">
         {Array.from({ length: 5 }).map((_, i) => (
           <Star key={i} size={15} fill="currentColor" />
@@ -12,7 +12,7 @@ function Card({ r }) {
       </div>
       <p className="text-bone/90 leading-relaxed mb-5">"{r.text}"</p>
       <div className="flex items-center gap-3">
-        <span className="h-9 w-9 rounded-full bg-brand/15 text-brand flex items-center justify-center font-display font-black">
+        <span className="h-9 w-9 rounded-none bg-brand/15 text-brand flex items-center justify-center font-display font-black">
           {r.name.slice(0, 1)}
         </span>
         <div>

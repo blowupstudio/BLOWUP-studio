@@ -27,7 +27,7 @@ function DesktopNav({ onNavigate }) {
 
 function MobileMenu({ onNavigate }) {
   return (
-    <div className="lg:hidden glass border-t border-line" data-testid="mobile-menu">
+    <div className="lg:hidden glass" data-testid="mobile-menu">
       <div className="px-5 py-3 flex flex-col">
         {nav.map((item) => (
           <a
@@ -37,7 +37,7 @@ function MobileMenu({ onNavigate }) {
               e.preventDefault();
               onNavigate(item.href);
             }}
-            className="py-3 font-display font-semibold uppercase text-2xl border-b border-line/70"
+            className="py-3 font-display font-semibold uppercase text-2xl"
             data-testid={`mobile-nav-${item.label.toLowerCase()}`}
           >
             {item.label}
@@ -47,7 +47,7 @@ function MobileMenu({ onNavigate }) {
           href={links.booking}
           target="_blank"
           rel="noreferrer"
-          className="mt-4 mb-2 inline-flex justify-center items-center gap-2 bg-brand text-ink font-semibold px-5 py-3.5 rounded-full"
+          className="mt-4 mb-2 inline-flex justify-center items-center gap-2 bg-brand text-ink font-semibold px-5 py-3.5 rounded-none"
         >
           Book session <ArrowUpRight size={16} />
         </a>
@@ -76,7 +76,7 @@ export default function Header() {
   return (
     <header
       className={`fixed top-0 inset-x-0 z-[110] transition-all duration-300 ${
-        scrolled ? "py-3 glass border-b border-line" : "py-4 sm:py-5"
+        scrolled ? "py-3 glass" : "py-4 sm:py-5"
       }`}
       data-testid="site-header"
     >
@@ -104,7 +104,7 @@ export default function Header() {
               href={links.booking}
               target="_blank"
               rel="noreferrer"
-              className="inline-flex items-center gap-1.5 bg-brand hover:bg-brandDark text-ink font-semibold text-sm px-5 py-2.5 rounded-full transition-colors"
+              className="inline-flex items-center gap-1.5 bg-brand hover:bg-brandDark text-ink font-semibold text-sm px-5 py-2.5 rounded-none transition-colors"
               data-testid="header-book-btn"
             >
               Book session <ArrowUpRight size={16} />

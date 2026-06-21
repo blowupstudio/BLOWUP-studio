@@ -22,7 +22,7 @@ export default function Gallery() {
               className={`cursor-pointer ${i === 0 ? "col-span-2 row-span-2" : ""}`}
               data-testid={`gallery-item-${i}`}
             >
-              <TiltCard className="h-full w-full rounded-xl overflow-hidden border border-line group">
+              <TiltCard className="h-full w-full rounded-none overflow-hidden border border-line group">
                 <img
                   src={src}
                   alt={`BLOWUP studio ${i + 1}`}
@@ -48,7 +48,7 @@ export default function Gallery() {
           >
             <X size={30} />
           </button>
-          <img src={active} alt="" className="max-h-[85vh] max-w-full object-contain rounded-xl border border-line" />
+          <img src={active} alt="" className="max-h-[85vh] max-w-full object-contain rounded-none border border-line" />
         </div>
       )}
     </section>

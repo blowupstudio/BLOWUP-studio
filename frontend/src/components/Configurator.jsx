@@ -11,18 +11,18 @@ function SessionOption({ s, selected, onSelect }) {
   return (
     <button
       onClick={() => onSelect(s.id)}
-      className={`w-full text-left rounded-2xl border p-5 sm:p-6 flex items-center justify-between gap-4 transition-colors ${
+      className={`w-full text-left rounded-none border p-5 sm:p-6 flex items-center justify-between gap-4 transition-colors ${
         selected ? "border-brand bg-brand/[0.07]" : "border-line bg-ink hover:border-lineStrong"
       }`}
       data-testid={`session-option-${s.id}`}
     >
       <div className="flex items-center gap-4">
         <span
-          className={`h-5 w-5 rounded-full border-2 flex items-center justify-center shrink-0 ${
+          className={`h-5 w-5 border-2 flex items-center justify-center shrink-0 ${
             selected ? "border-brand" : "border-lineStrong"
           }`}
         >
-          {selected && <span className="h-2.5 w-2.5 rounded-full bg-brand" />}
+          {selected && <span className="h-2.5 w-2.5 bg-brand" />}
         </span>
         <div>
           <div className="font-display font-semibold uppercase text-2xl tracking-tight leading-none">{s.label}</div>
@@ -31,7 +31,7 @@ function SessionOption({ s, selected, onSelect }) {
       </div>
       <div className="flex items-center gap-3">
         {s.popular && (
-          <span className="hidden sm:inline-block bg-brand text-ink text-[10px] font-bold uppercase tracking-wide px-2.5 py-1 rounded-full">
+          <span className="hidden sm:inline-block bg-brand text-ink text-[10px] font-bold uppercase tracking-wide px-2.5 py-1 rounded-none">
             Populær
           </span>
         )}
@@ -41,9 +41,34 @@ function SessionOption({ s, selected, onSelect }) {
   );
 }
 
+function BeatRow({ href, icon: Icon, title, note, testid }) {
+  return (
+    <a
+      href={href}
+      target="_blank"
+      rel="noreferrer"
+      className="group w-full rounded-none border border-line bg-ink hover:border-tide hover:bg-tide/[0.06] p-5 sm:p-6 flex items-center justify-between gap-4 transition-colors"
+      data-testid={testid}
+    >
+      <div className="flex items-center gap-4">
+        <span className="h-12 w-12 rounded-none bg-tide/15 text-tide flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform">
+          <Icon size={22} />
+        </span>
+        <div>
+          <div className="font-display font-semibold uppercase text-2xl tracking-tight leading-none">{title}</div>
+          <div className="overline text-ash mt-1">{note}</div>
+        </div>
+      </div>
+      <span className="inline-flex items-center gap-1.5 font-display font-black uppercase text-sm tracking-wide text-tide">
+        Køb <ArrowUpRight size={18} className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+      </span>
+    </a>
+  );
+}
+
 function SummaryPanel({ total }) {
   return (
-    <div className="rounded-2xl border border-line bg-ink p-6 sm:p-8 lg:sticky lg:top-24">
+    <div className="rounded-none border border-line bg-ink p-6 sm:p-8 lg:sticky lg:top-24">
       <div className="overline text-ash">Din pris</div>
       <div className="font-display font-black text-7xl sm:text-8xl text-brand leading-none my-3">
         <CountUp value={total} format={daKr} />
@@ -61,36 +86,16 @@ function SummaryPanel({ total }) {
           href={links.booking}
           target="_blank"
           rel="noreferrer"
-          className="w-full inline-flex items-center justify-center gap-2 bg-brand hover:bg-brandDark text-ink font-semibold text-base px-6 py-4 rounded-full transition-colors"
+          className="w-full inline-flex items-center justify-center gap-2 bg-brand hover:bg-brandDark text-ink font-semibold text-base px-6 py-4 rounded-none transition-colors"
           data-testid="configurator-book-btn"
         >
           Book denne session <ArrowUpRight size={18} />
         </a>
       </Magnetic>
+      <p className="text-ash text-xs mt-4 leading-relaxed">
+        Sessions booker du via Planway. Beats køber du direkte hos os.
+      </p>
     </div>
-  );
-}
-
-function BeatCard({ href, icon: Icon, title, note, testid }) {
-  return (
-    <a
-      href={href}
-      target="_blank"
-      rel="noreferrer"
-      className="group rounded-2xl border border-line bg-ink hover:border-tide p-6 flex items-center justify-between gap-4 transition-colors"
-      data-testid={testid}
-    >
-      <div className="flex items-center gap-4">
-        <span className="h-12 w-12 rounded-xl bg-tide/15 text-tide flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform">
-          <Icon size={22} />
-        </span>
-        <div>
-          <div className="font-display font-semibold uppercase text-xl tracking-tight leading-none">{title}</div>
-          <div className="overline text-ash mt-1.5">{note}</div>
-        </div>
-      </div>
-      <ArrowUpRight size={20} className="text-ash group-hover:text-tide transition-colors shrink-0" />
-    </a>
   );
 }
 
@@ -108,29 +113,29 @@ export default function Configurator() {
             {sessions.map((s) => (
               <SessionOption key={s.id} s={s} selected={s.id === sel} onSelect={setSel} />
             ))}
+
+            <div className="flex items-center gap-3 pt-6 pb-1">
+              <span className="overline text-tide">Beats</span>
+              <span className="h-2 w-2 bg-tide" />
+              <span className="overline text-ash">køb direkte</span>
+            </div>
+            <BeatRow
+              href={links.readyBeat}
+              icon={Disc3}
+              title="Færdigt beat"
+              note="BeatStars · klar med det samme"
+              testid="buy-ready-beat"
+            />
+            <BeatRow
+              href={links.customBeat}
+              icon={Sparkles}
+              title="Skræddersyet beat"
+              note="Instagram · co-produceret til dig"
+              testid="buy-custom-beat"
+            />
           </div>
           <div className="lg:col-span-2">
             <SummaryPanel total={total} />
-          </div>
-        </div>
-
-        <div className="mt-14">
-          <div className="overline text-ash mb-4">Eller køb et beat</div>
-          <div className="grid sm:grid-cols-2 gap-4">
-            <BeatCard
-              href={links.readyBeat}
-              icon={Disc3}
-              title="Køb færdigt beat"
-              note="BeatStars"
-              testid="buy-ready-beat"
-            />
-            <BeatCard
-              href={links.customBeat}
-              icon={Sparkles}
-              title="Køb skræddersyet beat"
-              note="Instagram · co-prod"
-              testid="buy-custom-beat"
-            />
           </div>
         </div>
       </div>

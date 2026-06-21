@@ -15,7 +15,7 @@ function VideoCard({ v, onOpen }) {
   return (
     <button
       onClick={() => onOpen(v)}
-      className="group relative shrink-0 snap-start w-[78%] sm:w-[400px] rounded-2xl overflow-hidden border border-line text-left"
+      className="group relative shrink-0 snap-start w-[78%] sm:w-[400px] rounded-none overflow-hidden border border-line text-left"
       data-testid={`video-item-${v.id}`}
     >
       <div className="relative aspect-video overflow-hidden">
@@ -25,7 +25,7 @@ function VideoCard({ v, onOpen }) {
           className="h-full w-full object-cover brightness-[0.85] group-hover:brightness-100 group-hover:scale-105 transition-all duration-700"
         />
         <div className="absolute inset-0 flex items-center justify-center">
-          <span className="h-14 w-14 rounded-full bg-brand text-ink flex items-center justify-center group-hover:scale-110 transition-transform">
+          <span className="h-14 w-14 rounded-none bg-brand text-ink flex items-center justify-center group-hover:scale-110 transition-transform">
             <Play size={22} fill="currentColor" />
           </span>
         </div>
@@ -56,7 +56,7 @@ function VideoModal({ video, onClose }) {
       </button>
       <motion.div
         {...MODAL_INNER}
-        className="w-full max-w-4xl aspect-video rounded-2xl overflow-hidden border border-line"
+        className="w-full max-w-4xl aspect-video rounded-none overflow-hidden border border-line"
         onClick={(e) => e.stopPropagation()}
       >
         <iframe
@@ -84,7 +84,7 @@ export default function Artists() {
           <div className="hidden md:flex gap-2 mb-10 md:mb-14">
             <button
               onClick={() => scrollBy(-1)}
-              className="h-11 w-11 rounded-full border border-line hover:border-brand text-bone flex items-center justify-center transition-colors"
+              className="h-11 w-11 rounded-none border border-line hover:border-brand text-bone flex items-center justify-center transition-colors"
               aria-label="Forrige"
               data-testid="artists-prev"
             >
@@ -92,7 +92,7 @@ export default function Artists() {
             </button>
             <button
               onClick={() => scrollBy(1)}
-              className="h-11 w-11 rounded-full border border-line hover:border-brand text-bone flex items-center justify-center transition-colors"
+              className="h-11 w-11 rounded-none border border-line hover:border-brand text-bone flex items-center justify-center transition-colors"
               aria-label="Næste"
               data-testid="artists-next"
             >

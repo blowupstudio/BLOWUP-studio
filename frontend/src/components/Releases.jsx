@@ -18,7 +18,7 @@ export default function Releases() {
 
       <div className="max-w-shell mx-auto px-5 md:px-8">
         <div className="grid lg:grid-cols-5 gap-6 items-center">
-          <Reveal className="lg:col-span-3 rounded-2xl overflow-hidden border border-line">
+          <Reveal className="lg:col-span-3 rounded-none overflow-hidden border border-line">
             <iframe
               title="BLOWUP studio playlist"
               src={links.spotifyEmbed}
@@ -39,7 +39,7 @@ export default function Releases() {
                 href={links.spotifyOpen}
                 target="_blank"
                 rel="noreferrer"
-                className="mt-6 inline-flex items-center gap-2 bg-brand hover:bg-brandDark text-ink font-semibold text-sm px-6 py-3.5 rounded-full transition-colors"
+                className="mt-6 inline-flex items-center gap-2 bg-brand hover:bg-brandDark text-ink font-semibold text-sm px-6 py-3.5 rounded-none transition-colors"
                 data-testid="releases-spotify-btn"
               >
                 <Radio size={16} /> Åbn på Spotify

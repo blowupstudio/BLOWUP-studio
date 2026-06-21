@@ -1,9 +1,7 @@
 import { useEffect } from "react";
 import Lenis from "lenis";
 import Preloader from "./components/Preloader";
-import Cursor from "./components/Cursor";
 import ScrollProgress from "./components/ScrollProgress";
-import Noise from "./components/Noise";
 import Header from "./components/Header";
 import Hero from "./components/Hero";
 import Marquee from "./components/Marquee";
@@ -38,9 +36,7 @@ export default function App() {
   return (
     <div className="bg-ink text-bone min-h-screen relative">
       <Preloader />
-      <Cursor />
       <ScrollProgress />
-      <Noise />
       <Header />
       <main>
         <Hero />

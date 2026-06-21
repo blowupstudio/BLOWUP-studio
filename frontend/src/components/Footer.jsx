@@ -20,7 +20,7 @@ function SocialLinks() {
               href={s.href}
               target="_blank"
               rel="noreferrer"
-              className="h-12 w-12 rounded-full border border-line hover:border-brand hover:text-brand text-bone flex items-center justify-center transition-colors"
+              className="h-12 w-12 rounded-none border border-line hover:border-brand hover:text-brand text-bone flex items-center justify-center transition-colors"
               aria-label={s.label}
               data-testid={`social-${s.label.toLowerCase()}`}
             >
@@ -57,7 +57,7 @@ export default function Footer() {
         <span className="font-display font-black uppercase text-[22vw] text-stroke">BLOWUP</span>
       </div>
 
-      <div className="border-t border-line">
+      <div>
         <div className="max-w-shell mx-auto px-5 md:px-8 py-5 flex flex-col sm:flex-row items-center justify-between gap-2 text-xs text-ash">
           <span>© {new Date().getFullYear()} BLOWUP studio. Alle rettigheder forbeholdes.</span>
           <a

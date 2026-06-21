@@ -14,7 +14,7 @@ export default function Services() {
             <Reveal
               key={s.no}
               delay={i * 0.1}
-              className="group relative border border-line bg-surface hover:bg-brand rounded-2xl p-7 sm:p-8 min-h-[260px] flex flex-col justify-between transition-colors duration-500 overflow-hidden"
+              className="group relative border border-line bg-surface hover:bg-brand rounded-none p-7 sm:p-8 min-h-[260px] flex flex-col justify-between transition-colors duration-500 overflow-hidden"
               data-testid={`service-${s.no}`}
             >
               <div className="flex items-start justify-between">
