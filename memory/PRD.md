@@ -96,3 +96,8 @@ EOF
 - Removed the "BLOWUP · Hedehusene" yellow tag overlay on Patrick's photo.
 - Removed the "Book en session med Patrick" button from the Owner section.
 - Sound on/off toggle: already removed in iteration (d); only the bg video `muted` attribute remains (no UI control).
+
+## Update 2026-06-21 (f) — Fix overline lines + revert index-number removal
+- Reverted the previous change: section index numbers (05, 06...) are back above titles.
+- ROOT CAUSE of "line over the texts": the custom `.overline` class collided with Tailwind's built-in `overline` utility (text-decoration-line: overline), drawing a yellow line above every overline-class label (hero eyebrow, nav items, SCROLL). Fixed by adding `text-decoration: none;` to `.overline` in index.css. Verified gone via screenshot.
+- Confirmed the new hero video contains no baked-in text/line (all frames clean).

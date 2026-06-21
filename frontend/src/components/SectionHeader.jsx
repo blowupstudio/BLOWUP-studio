@@ -1,10 +1,16 @@
 import Reveal from "./Reveal";
 
-export default function SectionHeader({ title, sub, center }) {
+export default function SectionHeader({ index, title, sub, center }) {
   return (
     <div className={`mb-10 md:mb-14 ${center ? "text-center mx-auto" : ""}`}>
+      <Reveal className={`mb-3 ${center ? "flex justify-center" : ""}`}>
+        <span className="font-display text-brand text-lg font-black leading-none tracking-tight">
+          {index}
+        </span>
+      </Reveal>
       <Reveal
         as="h2"
+        delay={0.05}
         className="font-display font-black uppercase text-4xl sm:text-5xl md:text-6xl leading-[0.95] tracking-tight max-w-3xl"
       >
         {title}
