@@ -52,3 +52,17 @@ EOF
 
 ### Backlog / Notes
 - Spotify iframe in #lyt shows a client-side error white box in headless Chromium only (pre-existing, out of scope). Consider a graceful fallback CTA if the embed fails.
+
+## Update 2026-06-21 (b) — Content & UX changes
+- Removed full-width divider lines (border-t/border-y) above ALL section titles (Stats, Configurator, Releases, Artists, Gallery, Reviews, Contact, Footer) + Releases marquee border. Sections separated only by alternating bg.
+- Removed the "Hvad vi laver" Services section entirely + "Studie" nav item. Section indices renumbered 01–06.
+- Configurator: removed the "Ekstra custom beat" add-on so sessions are single-select only (no package combining). Sessions still book via Planway.
+- Added two outbound beat-purchase buttons in the session section: "Køb færdigt beat" → BeatStars (links.readyBeat), "Køb skræddersyet beat" → Instagram co-prod (links.customBeat, updated URL). NOTE: these buttons did not exist before; placed under the session selector — relocate if a different spot is preferred.
+- Contact "Sig hej": removed the email form (backend /api/contact now unused). Kept email + address links + map, and added a "Klar i studiet?" CTA card (Book → Planway + Instagram/YouTube/Discord) to balance the layout.
+- Artists title "Energien i rummet." → "Oplev artisterne."
+- Fixed black-square scroll artifact: removed `mix-blend-mode: difference` + `will-change` from the fixed `.cursor-dot` (now solid brand-yellow dot).
+- Verified by testing agent (iteration_5.json): 7/7 frontend checks pass; exact hrefs confirmed; no mobile horizontal overflow.
+
+### Backlog
+- Pre-existing non-blocking React minified error #418 (likely Preloader/motion hydration) — investigate later.
+- Dead code: Services.jsx unused + addonBeat/topics exports in data.js unused — optional cleanup.
