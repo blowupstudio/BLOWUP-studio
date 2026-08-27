@@ -10,7 +10,7 @@ export default function Owner() {
           <Reveal className="order-1">
             <div className="relative border border-line bg-white rounded-none overflow-hidden">
               <img
-                src={asset("patrick.jpeg")}
+                src={asset("patrick.jpeg") + "?v=2"}
                 alt="Patrick Forslund — stifter af BLOWUP studio"
                 className="w-full h-full object-cover object-top aspect-[4/5]"
                 data-testid="owner-photo"

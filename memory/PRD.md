@@ -101,3 +101,9 @@ EOF
 - Reverted the previous change: section index numbers (05, 06...) are back above titles.
 - ROOT CAUSE of "line over the texts": the custom `.overline` class collided with Tailwind's built-in `overline` utility (text-decoration-line: overline), drawing a yellow line above every overline-class label (hero eyebrow, nav items, SCROLL). Fixed by adding `text-decoration: none;` to `.overline` in index.css. Verified gone via screenshot.
 - Confirmed the new hero video contains no baked-in text/line (all frames clean).
+
+## Update 2026-08-27 — New Patrick portrait
+- Replaced /assets/site/patrick.jpeg with the user's new studio portrait (from Dropbox), optimized to 1200x1200 JPEG (~120KB). Added cache-buster '?v=2' in Owner.jsx img src.
+- Verified by testing agent iteration_8.json: image loads (naturalWidth 1200), framed correctly (object-cover object-top 4/5), no mobile overflow, page renders fine. 100% pass.
+- Note: earlier the user's first Dropbox/upload attempt contained a website screenshot (not a portrait); the correct portrait was later provided via Dropbox folder link.
+- Spotify embed (playlist 71CAFwukAKylGAjjmCwMrT) is a LIVE embed — new songs added to the playlist appear automatically; no code change needed.
